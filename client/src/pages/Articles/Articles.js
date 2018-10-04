@@ -60,9 +60,7 @@ class Articles extends Component {
   handleClickSaved = event => {
     event.preventDefault();
 
-    console.log(event.target);
-
-    API.saveArticle({ title: event.target.title, date: event.target.date, url: event.target.url })
+    API.saveArticle({ title: event.target.getAttribute("title"), date: event.target.getAttribute("date"), url: event.target.getAttribute("url") })
       .then(res => {
         this.loadSaved();
       })
@@ -113,6 +111,7 @@ class Articles extends Component {
               <List>
                 {this.state.saved.map(articles => (
                   <ListItem key={articles._id}>
+                    {articles.date}
                     <a href={articles.url}>
                       <strong>
                         {articles.title}
