@@ -77,9 +77,9 @@ class Articles extends Component {
               <h1 className="siteTitle">New York Times Search</h1>
             </Jumbotron>
             <form>
-              <Input name="title" placeholder="Title" onChange={this.handleInputChange} />
-              <Input name="firstYear" placeholder="First Year" onChange={this.handleInputChange} />
-              <Input name="lastYear" placeholder="Last Year" onChange={this.handleInputChange} />
+              <Input name="title" placeholder="Title (Required)" onChange={this.handleInputChange} />
+              <Input name="firstYear" placeholder="First Year (Required)" onChange={this.handleInputChange} />
+              <Input name="lastYear" placeholder="Last Year (Required)" onChange={this.handleInputChange} />
               <FormBtn onClick={this.handleClickArticles}>Search</FormBtn>
             </form>
           </Col>
