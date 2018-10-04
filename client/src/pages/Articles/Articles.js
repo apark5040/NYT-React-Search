@@ -30,6 +30,13 @@ class Articles extends Component {
     });
   }
 
+  deleteArticle = event => {
+    API.deleteArticle(event.target.id)
+    .then(res => {
+      this.loadSaved();
+    })
+  }
+
   handleClickArticles = event => {
     event.preventDefault();
     let q = this.state.title;
@@ -69,7 +76,7 @@ class Articles extends Component {
           <Col size="md-2"></Col>
           <Col size="md-8">
             <Jumbotron>
-              <h1>New York Times Search</h1>
+              <h1 className="siteTitle">New York Times Search</h1>
             </Jumbotron>
             <form>
               <Input name="title" placeholder="Title" onChange={this.handleInputChange} />
@@ -111,12 +118,12 @@ class Articles extends Component {
                         {articles.title}
                       </strong>
                     </a>
-                    <DeleteBtn />
+                    <DeleteBtn id={articles._id} onClick={this.deleteArticle}/>
                   </ListItem>
                 ))}
               </List>
             ) : (
-                <h3>No Results to Display</h3>
+                <h3 className="headings">No Results to Display</h3>
               )}
 
           </Col>
